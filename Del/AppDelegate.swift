@@ -13,11 +13,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    //    var initialVC: UIViewController?
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let navigationController = UINavigationController()
+        let mainView = FirstRootVC(nibName: "FirstRootVC", bundle: nil)
+
+        navigationController.viewControllers = [mainView]
+
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+
+
+        //        initialVC = FirstRootVC(nibName: "FirstRootVC", bundle: nil)
+        //        let frame = UIScreen.main.bounds
+        //        window = UIWindow(frame: frame)
+        //        window!.rootViewController = initialVC
+        //        window!.makeKeyAndVisible()
+
         return true
     }
+
+
+    //    self.window = UIWindow(frame: UIScreen.main.bounds)
+    //    let nav1 = UINavigationController()
+    //    let mainView = ViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
+    //    nav1.viewControllers = [mainView]
+    //    self.window!.rootViewController = nav1
+    //    self.window?.makeKeyAndVisible()
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -40,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
